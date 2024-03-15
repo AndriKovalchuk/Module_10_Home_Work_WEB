@@ -1,0 +1,43 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1 class="custom-h1">Add Author</h1>
+    {% if form.errors and form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+        {{form.non_field_errors}}
+    </div>
+    {% endif %}
+    <form action="{% url 'quotes:add_author' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputText1" class="form-label">Fullname</label>
+            {{ form.fullname }}
+
+            <div id="textHelp1" class="form-text">Author's first and last name.</div>
+            <span>{{form.errors.fullname}}</span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputText2" class="form-label">Born date</label>
+            {{ form.born_date }}
+            <div id="textHelp2" class="form-text">Author's date of birth.</div>
+            <span>{{form.errors.born_date}}</span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputText3" class="form-label">Born location</label>
+            {{ form.born_location }}
+            <div id="textHelp3" class="form-text">Author's place of birth.</div>
+            <span>{{form.errors.born_location}}</span>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputText4" class="form-label">Description</label>
+            {{ form.description }}
+            <div id="textHelp4" class="form-text">Author's description.</div>
+            <span>{{form.errors.description}}</span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+</div>
+{% endblock %}
