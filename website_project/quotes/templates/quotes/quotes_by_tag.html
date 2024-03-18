@@ -1,0 +1,25 @@
+{% extends 'quotes/base.html' %}
+{% load extract %}
+
+{% block content %}
+
+<h2>Quotes with tag "{{ tag }}"</h2>
+
+{% for quote in quotes %}
+<div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span class="text" itemprop="text">
+        {{quote.quote}}
+    </span>
+    <span>by <small class="author" itemprop="author">{{quote.author|author}}</small>
+<a href="/authors/{{quote.author|author}}">(about)</a>
+</span>
+    <div class="tags">
+        Tags:
+        {% for tag in quote.tags %}
+        <a class="tag" href="{% url 'quotes:quotes_by_tag' tag=tag %}">{{tag}}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

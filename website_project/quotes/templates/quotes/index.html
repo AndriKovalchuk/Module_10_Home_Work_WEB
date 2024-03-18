@@ -16,11 +16,14 @@
             <div class="tags">
                 Tags:
                 {% for tag in quote.tags %}
-                <a class="tag" href="/tag/{{tag}}">{{tag}}</a>
+                <a class="tag" href="{% url 'quotes:quotes_by_tag' tag=tag %}">{{tag}}</a>
                 {% endfor %}
             </div>
+
         </div>
+
         {% endfor %}
+
         <nav>
             <ul class="pager">
                 <li class="previous">
@@ -39,6 +42,7 @@
 
             </ul>
         </nav>
+
     </div>
 
 </div>

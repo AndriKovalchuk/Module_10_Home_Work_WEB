@@ -6,12 +6,12 @@
     {% for author in authors %}
     <div class="card mb-3">
         <div class="card-header">
-            {{ forloop.counter }}
+            {{ forloop.counter }}. {{ author.names }}
         </div>
         <div class="card-body">
             <h5 class="card-title">{{author.fullname}}</h5>
             <p class="card-text">Born: {{author.born_date}} {{author.born_location}}</p>
-            <a href="#" class="btn btn-primary">About</a>
+            <a href="{% url 'quotes:author_info' author_fullname=author.fullname %}" class="btn btn-primary">About</a>
         </div>
     </div>
     {% endfor %}

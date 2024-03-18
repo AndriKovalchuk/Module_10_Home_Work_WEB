@@ -35,6 +35,20 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "mongoengine"
+version = "0.28.2"
+description = "MongoEngine is a Python Object-Document Mapper for working with MongoDB."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mongoengine-0.28.2-py3-none-any.whl", hash = "sha256:8e0f84a5ad3d335e5da98261454d4ab546c866241ed064adc6433fe2077d43c9"},
+    {file = "mongoengine-0.28.2.tar.gz", hash = "sha256:67c35a2ebe0ee7fd8eda3766dc251b9e0aada4489bb935f7a55b4c570d148ca7"},
+]
+
+[package.dependencies]
+pymongo = ">=3.4,<5.0"
+
+[[package]]
 name = "psycopg2"
 version = "2.9.9"
 description = "psycopg2 - Python-PostgreSQL Database Adapter"
@@ -202,4 +216,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "d6834b82951132fda3f6a899fdc20a376327e9759a26b0bd77b3d2e7761cc2bd"
+content-hash = "27528692be0543716fd3a8587368bbf02c3635eff47e4c64106588e846046113"

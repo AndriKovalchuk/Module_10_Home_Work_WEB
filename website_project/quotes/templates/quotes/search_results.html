@@ -1,15 +1,27 @@
 {% extends 'quotes/base.html' %}
+{% load extract %}
 
 {% block content %}
-    <h2>Search Results</h2>
-    {% if query %}
-        <p>Showing results for: "{{ query }}"</p>
-    {% endif %}
-    <ul class="quotes_list">
-        {% for quote in results %}
-            <li>{{ quote.quote }} - {{ quote.author.fullname }}</li>
-        {% empty %}
-            <li>No results found.</li>
-        {% endfor %}
-    </ul>
+<h2>Search Results</h2>
+{% if query %}
+<p>Showing results for: "{{ query }}"</p>
+{% endif %}
+<div class="quotes_list">
+    {% for quote in results %}
+    <div class="quote" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <span class="text" itemprop="text">
+        {{quote.quote}}
+    </span>
+        <span>by <small class="author" itemprop="author">{{quote.author|author}}</small>
+<a href="/authors/{{quote.author|author}}">(about)</a>
+</span>
+        <div class="tags">
+            Tags:
+            {% for tag in quote.tags %}
+            <a class="tag" href="{% url 'quotes:quotes_by_tag' tag=tag %}">{{tag}}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}

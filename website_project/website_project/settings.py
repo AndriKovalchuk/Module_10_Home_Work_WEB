@@ -72,6 +72,10 @@ WSGI_APPLICATION = "website_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+import mongoengine
+
+mongoengine.connect("Module_10_Home_Work_WEB", host="localhost:27017")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -79,7 +83,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Ukr@ine2024',
         'HOST': 'localhost',  # Or your PostgreSQL server's IP address
-        'PORT': '5432',       # Default PostgreSQL port
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
 

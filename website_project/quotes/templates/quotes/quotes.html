@@ -3,11 +3,14 @@
 {% block content %}
 <div class="container mt-3">
     <h1 class="custom-h1">My Quotes</h1>
-    {% for quote in quotes %}
+    {% for quote in results %}
+
     <div class="card mb-3">
         <div class="card-header">
-            {{ forloop.counter }}. {{quote.author.fullname}}
+            {{ forloop.counter }}. {{ quote.author_name }}
+
         </div>
+
         <div class="card-body">
             <h5 class="card-title">{{quote.quote}}</h5>
             <p class="card-text">
@@ -15,9 +18,14 @@
                 <span class="tag">{{ tag.name }}</span>
                 {% if not forloop.last %} {% endif %}
                 {% endfor %}
+
             </p>
+
         </div>
+
     </div>
+
     {% endfor %}
 </div>
+
 {% endblock %}

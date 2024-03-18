@@ -13,25 +13,22 @@
         <div class="mb-3">
             <label for="exampleInputQuote1" class="form-label">Quote</label>
             {{ form.quote }}
-
-            <div id="textHelp1" class="form-text">Quote Text.</div>
-            <span>{{form.errors.quote}}</span>
         </div>
-        <!--        <div class="mb-3">-->
-        <!--            <label for="exampleInputQuote2" class="form-label">Tags</label>-->
-        <!--            {{ form.tags }}-->
-        <!--            <div id="textHelp2" class="form-text">Quote Tags.</div>-->
-        <!--            <span>{{form.errors.tags}}</span>-->
-        <!--        </div>-->
+        <div class="mb-3">
+            <label for="exampleInputQuote2" class="form-label">Tags</label>
+            {{ form.tags }}
+            <div id="textHelp2" class="form-text">Quote Tags.</div>
+            <span>{{form.errors.tags}}</span>
+        </div>
         <div class="mb-3">
             <label for="exampleInputQuote3" class="form-label">Author</label>
             <select name="author" class="form-control" id="exampleInputQuote3" required="">
+                <option value="">Select an author</option>
                 {% for author in authors %}
-                <option value="{{ author.pk }}">{{ author.fullname }}</option>
+                <option value="{{ author.id }}">{{ author.fullname }}</option>
                 {% endfor %}
             </select>
-            <div id="textHelp3" class="form-text">Quote Author.</div>
-            <span></span>
+
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
