@@ -1,13 +1,14 @@
 {% extends "quotes/base.html" %}
+{% load extract %}
 
 {% block content %}
 <div class="container mt-3">
     <h1 class="custom-h1">My Quotes</h1>
-    {% for quote in results %}
+    {% for quote in quotes %}
 
     <div class="card mb-3">
         <div class="card-header">
-            {{ forloop.counter }}. {{ quote.author_name }}
+            {{ forloop.counter }}. {{ quote.author|author }}
 
         </div>
 
